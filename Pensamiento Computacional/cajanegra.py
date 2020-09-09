@@ -1,7 +1,7 @@
 import unittest
 
 def suma(num1,num2):
-    return abs(num1) + num2
+    return num1 + num2
 
 class CajaNegraTest(unittest.TestCase):
 
