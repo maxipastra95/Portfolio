@@ -1,32 +1,17 @@
-import unittest
+# assert <expresion booleana>, <mensaje de error>
 
-poblacion_paises = {
-            "Argentina": 45000000,
-            "Brasil": 200000000,
-            "Colombia": 50000000,
-        }
+def primera_letra(lista_palabras):
+    primeras_letras = []
+    
+    for palabra in lista_palabras:
+        try:
+            assert type(palabra) == str, f'{palabra} no es String'
+            assert len(palabra) > 0 , 'No se permiten vacios'
+            primeras_letras.append(palabra[0])
+        except AssertionError as e:
+            print(e)
 
-def agrega_pais(pais, habitantes):
-    poblacion_paises[pais] = habitantes
+    return primeras_letras
 
-if __name__ == "__main__":
-
-    c = 0
-
-    while c == 0:
-        pais = input("Escriba el nombre del pais el cual quiere agregar: ").lower().capitalize()
-        k = 0
-
-        while k == 0:
-            habitantes = input("Ingrese la cantidad de habitantes: ")
-            try:
-                int(habitantes)
-                break
-            except ValueError as e:
-                print("No se puede amigo, pone numeritos, trata de nuevo \n")
-
-        agrega_pais(pais, habitantes)
-        c = int(input("Continuar?: "))
-
-    for i, j in poblacion_paises.items():
-        print(i, j)
+lista = ['Angelo',5.5, '', 2 , '43952353', 0.35]
+print('Primeras letras validas son : ' , primera_letra(lista))
